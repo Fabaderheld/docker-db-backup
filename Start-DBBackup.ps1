@@ -4,7 +4,7 @@
 .DESCRIPTION
    Backups all kinds of backups, including dockerized DBs (SQL/Postgres/influx) credentials are retrieved from enviorment variables
 .EXAMPLE
-   PS C:\> .\backup.ps1
+   PS C:\> Start-DBBackup.ps1 -Backupfolder '/appdata/backup' -LogFile '/appdata/backup/Backup.log'
    Explanation of what the example does
 .PARAMETER Backupfolder
    Location where the backup will be stored
@@ -23,9 +23,9 @@
 [CmdletBinding()]
 param (
    [String]
-   $Script:Backupfolder = "/appdata/backup",
+   $Backupfolder,
    [String]
-   $LogFile = "/appdata/backup/Backup.log",
+   $LogFile,
    [Int32]
    $MaxBackup = 3
 )
