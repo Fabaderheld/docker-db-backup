@@ -1,13 +1,17 @@
 <#
 .SYNOPSIS
-   Short description
+   Quick and dirty backup Script for backing up dockerized DBs (SQL/Postgres/influx)
 .DESCRIPTION
-   Long description
+   Backups all kinds of backups, including dockerized DBs (SQL/Postgres/influx) credentials are retrieved from enviorment variables
 .EXAMPLE
-   PS C:\> <example usage>
+   PS C:\> .\backup.ps1
    Explanation of what the example does
-.PARAMETER Name
-   The description of a parameter. Add a ".PARAMETER" keyword for each parameter in the function or script syntax.
+.PARAMETER Backupfolder
+   Location where the backup will be stored
+.PARAMETER LogFile
+   Location where the logfile will be stored
+.PARAMETER MaxBackup
+   Number of Backups to keep, default is 3
 .INPUTS
    Inputs (if any)
 .OUTPUTS
