@@ -150,7 +150,7 @@ foreach ($Influx in $InfluxContainers) {
          }
       }
 
-      docker exec $ContainerName influxd backup -portable /tmp/influx_backup
+      docker exec $ContainerName influxd backup -portable /tmp/influx_backup | Out-Null
       docker cp "$($ContainerName):/tmp/influx_backup" $BackupPath
       docker exec $ContainerName rm -r /tmp/influx_backup
    }
