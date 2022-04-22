@@ -37,7 +37,9 @@ function Get-Backups {
    Get-ChildItem -Path $BackupFolder/$ContainerName
 }
 
-Start-Transcript -Path $LogFile
+if ($LogFile -eq $null) {
+   Start-Transcript -Path $LogFile
+}
 
 Write-Output "[$( Get-Date -Format 'dd.MM.yyyy HH:mm:ss')] Getting containers"
 
@@ -156,5 +158,6 @@ foreach ($Influx in $InfluxContainers) {
    }
 
 }
-
-Stop-Transcript
+if ($LogFile) {
+   Stop-Transcript
+}
