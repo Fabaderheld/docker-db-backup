@@ -70,7 +70,7 @@ foreach ($MariaDB in $MariaDBContainer) {
          Write-Output "Found more than $($MaxBackup) backups, removing old ones"
          foreach ($Backup in $Backups[$MaxBackup..$($Backups.Length)]) {
             Write-Output "[$( Get-Date -Format 'dd.MM.yyyy HH:mm:ss')] Removing old backup $($Backup)"
-            Remove-Item -Path $Backup.FullName -ErrorAction SilentlyContinue
+            Remove-Item -Path $Backup.FullName -Force -ErrorAction SilentlyContinue
          }
       }
 
@@ -110,7 +110,7 @@ foreach ($Postgres in $PostgersContainer) {
          Write-Output "Found more than $($MaxBackup) backups, removing old ones"
          foreach ($Backup in $Backups[$MaxBackup..$($Backups.Length)]) {
             Write-Output "[$( Get-Date -Format 'dd.MM.yyyy HH:mm:ss')] Removing old backup $($Backup)"
-            Remove-Item -Path $Backup.FullName -ErrorAction SilentlyContinue
+            Remove-Item -Path $Backup.FullName -Force -ErrorAction SilentlyContinue
          }
       }
 
@@ -148,7 +148,7 @@ foreach ($Influx in $InfluxContainers) {
          Write-Output "Found more than $($MaxBackup) backups, removing old ones"
          foreach ($Backup in $Backups[$MaxBackup..$($Backups.Length)]) {
             Write-Output "[$( Get-Date -Format 'dd.MM.yyyy HH:mm:ss')] Removing old backup $($Backup)"
-            Remove-Item -Path $Backup.FullName -Recurse -ErrorAction SilentlyContinue
+            Remove-Item -Path $Backup.FullName -Recurse -Force -ErrorAction SilentlyContinue
          }
       }
 
